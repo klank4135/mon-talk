@@ -1,0 +1,16 @@
+# mon-talk
+# Alexander Morales Villatoro
+# @klank
+# All references to the current file could be founded on
+# https://finestructure.co/blog/2016/5/16/monitoring-with-prometheus-grafana-docker-part-1
+
+version: '2'
+services:
+  prometheus:
+    image: prom/prometheus:0.18.0
+    volumes:
+        - ./conf/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+        - '-config.file=/etc/prometheus/prometheus.yml'
+    ports:
+        - '9090:9090'
